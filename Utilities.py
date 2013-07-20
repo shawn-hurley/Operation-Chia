@@ -5,6 +5,6 @@ def check_user_input_staic(answers, question):
     """
     user_input = raw_input(question)
     if user_input in answers:
-        return True
+        return True, user_input
     else
-        return False
+        return False, user_input
