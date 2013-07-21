@@ -1,0 +1,1 @@
+__PROPERTIES_FILES = "properties.prop"
