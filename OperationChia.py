@@ -1,6 +1,6 @@
 from Utilities import check_user_input_staic
 from EasterEggs import surprise_1
-from constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __CONTINUE_GAME_TEXT, __NEW_GAME_TEXT, __OPTIONS_TEXT 
+from Constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __CONTINUE_GAME_TEXT, __NEW_GAME_TEXT, __OPTIONS_TEXT 
 
 def main_menu():
     """This will be the main menu"""
