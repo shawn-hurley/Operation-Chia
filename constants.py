@@ -1,1 +1,5 @@
 __PROPERTIES_FILES = "properties.prop"
+__MAIN_MENU_TEXT = "\t\tOperation Chia \n\tMake your choice of what to do next."
+__CONTINUE_GAME_TEXT = "Choose 1 to continue your game"
+__NEW_GAME_TEXT = "Choose 2 to start a new game"
+__OPTIONS_TEXT = "Choose 3 to configure your options"

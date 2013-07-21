@@ -1,19 +1,23 @@
 from Utilities import check_user_input_staic
 from EasterEggs import surprise_1
+from constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __CONTINUE_GAME_TEXT, __NEW_GAME_TEXT, __OPTIONS_TEXT 
 
 def main_menu():
     """This will be the main menu"""
     try:
-        prop_file = open(PROP_FILE_PATH, "a")
+        prop_file = open(__PROPERTIES_FILES, "a")
     except Exception, e:
         raise e
     #print out menu
-    print()
-    user_input = check_user_input_staic(["1","2","3","4"], "Select you choice!")
+    print(__MAIN_MENU_TEXT)
+    print(__CONTINUE_GAME_TEXT)
+    print(__NEW_GAME_TEXT)
+    print(__OPTIONS_TEXT)
+    user_input = check_user_input_staic(["1","2","3","4"], "Select you choice! ")
     if user_input == "1":
-        pass
+        print("this will continue game")
     if user_input == "2":
-        pass
+        print("This will start a new game")
     if user_input == "3":
         pass
     if user_input == "4":
