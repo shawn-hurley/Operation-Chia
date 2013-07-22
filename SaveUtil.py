@@ -1,7 +1,7 @@
 import json
 import os
 import json
-from Constants import __SAVE_DIRECTORY, __set_current_user, __set_save_file
+from Constants import __PROPERTIES_FILES, __SAVE_DIRECTORY, __set_current_user, __set_save_file
 
 
 def choose_save():
@@ -27,7 +27,7 @@ def choose_save():
     print("Oh, of course I knew that.") 
 
 def open_prop_files():
-    file_json = open(__SAVE_DIRECTORY + __PROPERTIES_FILES).read()
+    file_json = open(__PROPERTIES_FILES).read()
     return json.loads(file_json)
     
 

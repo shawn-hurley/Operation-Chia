@@ -2,23 +2,23 @@ import os
 from Utilities import check_user_input_staic
 from EasterEggs import surprise_1
 from SaveUtil import open_prop_files, choose_save, make_save
-from Constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __CONTINUE_GAME_TEXT, __NEW_GAME_TEXT, __OPTIONS_TEXT, __CURRENT_USER, __FIRST_TIME, __SAVE_DIRECTORY, __SAVE_FILE
+from Constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __WHAT_CHANGE_OPTIONS, __CONTINUE_CONFIG_OPTIONS, __CHANGE_TO_TEXT,  __CONTINUE_GAME_TEXT, __NEW_GAME_TEXT, \
+__OPTIONS_TEXT, __CURRENT_USER, __FIRST_TIME, __SAVE_DIRECTORY, __SAVE_FILE
 
 def main_menu():
     """This will be the main menu"""
-<<<<<<< Updated upstream
     #ls_of_games = check_save()
     #print 
     #print out menu
-=======
->>>>>>> Stashed changes
     #check to see if completely new game
     if __FIRST_TIME:
+        print(__MAIN_MENU_TEXT)
         print(__NEW_GAME_TEXT)
         print(__OPTIONS_TEXT)
         user_input = check_user_input_staic(["1", "3"], "Select your choice! ")
     #full options menu
     else:
+        print(__MAIN_MENU_TEXT)
         print(__NEW_GAME_TEXT)
         print(__CONTINUE_GAME_TEXT)
         print(__OPTIONS_TEXT)
