@@ -1,12 +1,13 @@
 import os
-from SaveUtil import check_save
 
 def __set_first_time():
-    if check_save:
-        __FIRST_TIME = false
-    else:
+    try:
+        os.rmdir(__SAVE_DIRECTORY)
+    except OSError:
         __FIRST_TIME = true
-
+        #return os.listdir(__SAVE_DIRECTORY)
+    os.mkdir(__SAVE_DIRECTORY)
+    __FIRST_TIME = false
 
 def __set_current_user(name):
     __CURRENT_USER = name
