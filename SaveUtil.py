@@ -1,13 +1,13 @@
 import os
-SAVE_FILES = ~chia
-
-def checkSave():
+import json
+from Constants import __SAVE_FILES, __PROPERTIES_FILES
+def check_save():
     try:
-        os.rmdir(SAVE_FILES)
+        os.rmdir(__SAVE_FILES)
     except OSError as ex:
-        if ex.errno == errno.ENOTEMPTY:
-            return os.listdir(SAVE_FILES)
-    os.mkdir(SAVE_FILES)
+        if ex.errno == ENOTEMPTY:
+            return os.listdir(__SAVE_FILES)
+    os.mkdir(__SAVE_FILES)
     return []
 
 def chooseSave(lst):
@@ -20,7 +20,7 @@ def chooseSave(lst):
         return f
 
     else:
-        while !validID:
+        while not validID:
             inputID = raw_input("Chosen one. You have returned! What was your name again...")
             try:
                 f = open(inputID)
@@ -40,3 +40,8 @@ def makeSave(name):
     f.write("character_name = " + name)
     f.close
 
+def open_prop_files():
+    file_json = open(__SAVE_FILES + "/" + __PROPERTIES_FILES).read()
+    return json.loads(file_json)
+    
+    
