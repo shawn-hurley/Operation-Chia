@@ -1,26 +1,19 @@
 from Utilities import check_user_input_staic
 from EasterEggs import surprise_1
-<<<<<<< Updated upstream
-from Constants import __MAIN_MENU_TEXT, __PROPERTIES_FILES, __CONTINUE_GAME_TEXT, __CONTINUE_CONFIG_OPTIONS, __NEW_GAME_TEXT, \
-__OPTIONS_TEXT, __WHAT_CHANGE_OPTIONS, __CHANGE_TO_TEXT
 from SaveUtil import check_save, open_prop_files
-=======
 from Constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __CONTINUE_GAME_TEXT, __NEW_GAME_TEXT, __OPTIONS_TEXT, __FIRST_NEW_GAME_TEXT, __FIRST_OPTIONS_TEST, __CURRENT_USER, __FIRST_TIME, __SAVE_DIRECTORY, __SAVE_FILE
 import SaveUtil
 
->>>>>>> Stashed changes
 def main_menu():
     """This will be the main menu"""
     #ls_of_games = check_save()
     #print 
     #print out menu
     print(__MAIN_MENU_TEXT)
-<<<<<<< Updated upstream
     print(__CONTINUE_GAME_TEXT)
     print(__NEW_GAME_TEXT)
     print(__OPTIONS_TEXT)
     user_input = check_user_input_staic(["1","2","3","4"], "Select your choice! ")
-=======
     #check to see if completely new game
     if __FIRST_TIME:
         print(__FIRST_NEW_GAME_TEXT)
@@ -32,7 +25,6 @@ def main_menu():
         print(__OPTIONS_TEXT)
         user_input = check_user_input_staic(["1","2","3","4"], "Select your choice! ")
 
->>>>>>> Stashed changes
     if user_input == "1":
         newID = raw_input("Wake up, my boy! There's a world out there that needs saving. By what name will you make yourself known?")
         make_save(newID)
@@ -52,11 +44,8 @@ def main_menu():
 
 
     if user_input == "3":
-<<<<<<< Updated upstream
         configure_options()
-=======
         pass
->>>>>>> Stashed changes
 
     if user_input == "4":
         surprise_1()

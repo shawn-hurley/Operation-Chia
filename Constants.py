@@ -33,4 +33,3 @@ def __set_first_time():
         __FIRST_TIME = false
     else:
         __FIRST_TIME = true
->>>>>>> Stashed changes
