@@ -1,46 +1,36 @@
+import os
 from Utilities import check_user_input_staic
 from EasterEggs import surprise_1
-from SaveUtil import check_save, open_prop_files
-from Constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __CONTINUE_GAME_TEXT, __NEW_GAME_TEXT, __OPTIONS_TEXT, __FIRST_NEW_GAME_TEXT, __FIRST_OPTIONS_TEST, __CURRENT_USER, __FIRST_TIME, __SAVE_DIRECTORY, __SAVE_FILE
+from SaveUtil import open_prop_files, choose_save, make_save
+from Constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __CONTINUE_GAME_TEXT, __NEW_GAME_TEXT, __OPTIONS_TEXT, __CURRENT_USER, __FIRST_TIME, __SAVE_DIRECTORY, __SAVE_FILE
 
 def main_menu():
     """This will be the main menu"""
     #ls_of_games = check_save()
     #print 
     #print out menu
-    print(__MAIN_MENU_TEXT)
-    print(__CONTINUE_GAME_TEXT)
-    print(__NEW_GAME_TEXT)
-    print(__OPTIONS_TEXT)
-    user_input = check_user_input_staic(["1","2","3","4"], "Select your choice! ")
     #check to see if completely new game
     if __FIRST_TIME:
-        print(__FIRST_NEW_GAME_TEXT)
+        print(__NEW_GAME_TEXT)
+        print(__OPTIONS_TEXT)
         user_input = check_user_input_staic(["1", "3"], "Select your choice! ")
     #full options menu
     else:
-        print(__CONTINUE_GAME_TEXT)
         print(__NEW_GAME_TEXT)
+        print(__CONTINUE_GAME_TEXT)
         print(__OPTIONS_TEXT)
         user_input = check_user_input_staic(["1","2","3","4"], "Select your choice! ")
 
     if user_input == "1":
         newID = raw_input("Wake up, my boy! There's a world out there that needs saving. By what name will you make yourself known?")
         make_save(newID)
-        print("And here we go...")
-        #start the game here
 
     if user_input == "2":
         if __FIRST_TIME:
             newID = raw_input("Wake up, my boy! There's a world out there that needs saving. By what name will you make yourself known?")
             make_save(newID)
-            print("And here we go...")
-            #start the game here
         else:
-            choose_save()        
-            print("And here we go...")
-            #start the game here
-
+            choose_save()      
 
     if user_input == "3":
         configure_options()
@@ -49,6 +39,14 @@ def main_menu():
     if user_input == "4":
         surprise_1()
         main_menu()
+
+    ready = "no"
+    while ready != "yes":
+	ready =  raw_input("Ready to save the world? (yes/no)")
+
+    print("And so we go...")
+    
+
 
 def configure_options():
     json_props_file = open_prop_files()
