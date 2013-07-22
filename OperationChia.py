@@ -6,9 +6,12 @@ from Constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __CONTINUE_GAME_TEXT
 
 def main_menu():
     """This will be the main menu"""
+<<<<<<< Updated upstream
     #ls_of_games = check_save()
     #print 
     #print out menu
+=======
+>>>>>>> Stashed changes
     #check to see if completely new game
     if __FIRST_TIME:
         print(__NEW_GAME_TEXT)
