@@ -1,4 +1,6 @@
+import json
 import os
+<<<<<<< Updated upstream
 import json
 from Constants import __SAVE_FILES, __PROPERTIES_FILES
 def check_save():
@@ -9,16 +11,36 @@ def check_save():
             return os.listdir(__SAVE_FILES)
     os.mkdir(__SAVE_FILES)
     return []
+=======
+from Constants import __SAVE_DIRECTORY_1, __CURRENT_USER, __SAVE_FILE, __set_current_user
 
-def chooseSave(lst):
-    print lst
+def check_save():
+    try:
+        os.rmdir(__SAVE_DIRECTORY)
+    except OSError:
+        return true
+        #return os.listdir(__SAVE_DIRECTORY)
+    os.mkdir(__SAVE_DIRECTORY)
+    return false
+>>>>>>> Stashed changes
+
+def choose_save(lst):
     validID = false
+    inputID = ""
 
-    if not lst:
-        newID = raw_input("Wake up, my boy! There's a world out there that needs saving. By what name will you make yourself known?")
-        f = open(newID, w)
-        return f
+    while not validID:
+        print("Chosen one. You have returned! What was your name again...")
+        "Let's consult my journal. I write everything down!"
+        print(__SAVE_DIRECTORY)
+        inputID = raw_input("Now which one here were you?")
+        try:
+            f = open(__SAVE_DIRECTORY + inputID + ".json")
+        except IOError:
+            print "Don't lie to me, boy!"
+            continue
+        validID = true
 
+<<<<<<< Updated upstream
     else:
         while not validID:
             inputID = raw_input("Chosen one. You have returned! What was your name again...")
@@ -45,3 +67,13 @@ def open_prop_files():
     return json.loads(file_json)
     
     
+=======
+    __set_current_user(inputID)
+    print "Oh, of course I knew that. Ready to save the world " + inputID + "?" 
+
+def make_save(name):
+    data = [ { "name" : name, "items" : [], "progress" : [] } ]
+    with open(os.getcwd() + SAVE_FILE + "/" + name + ".json", "wr") as outfile:
+        json.dump(data, outfile)
+    __set_current_user(name)
+>>>>>>> Stashed changes
