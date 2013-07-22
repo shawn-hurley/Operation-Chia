@@ -1,7 +1,7 @@
 import json
 import os
 import json
-from Constants import __SAVE_DIRECTORY_1, __CURRENT_USER, __SAVE_FILE, __set_current_user
+from Constants import __SAVE_DIRECTORY, __CURRENT_USER, __SAVE_FILE, __set_current_user
 
 def check_save():
     try:

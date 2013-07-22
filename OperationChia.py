@@ -2,7 +2,6 @@ from Utilities import check_user_input_staic
 from EasterEggs import surprise_1
 from SaveUtil import check_save, open_prop_files
 from Constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __CONTINUE_GAME_TEXT, __NEW_GAME_TEXT, __OPTIONS_TEXT, __FIRST_NEW_GAME_TEXT, __FIRST_OPTIONS_TEST, __CURRENT_USER, __FIRST_TIME, __SAVE_DIRECTORY, __SAVE_FILE
-import SaveUtil
 
 def main_menu():
     """This will be the main menu"""
