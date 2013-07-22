@@ -1,18 +1,5 @@
 import os
 
-def __set_first_time():
-    try:
-        os.rmdir(__SAVE_DIRECTORY)
-    except OSError:
-        __FIRST_TIME = true
-        #return os.listdir(__SAVE_DIRECTORY)
-    os.mkdir(__SAVE_DIRECTORY)
-    __FIRST_TIME = false
-
-def __set_current_user(name):
-    __CURRENT_USER = name
-    __SAVE_FILE = __SAVE_DIRECTORY + __CURRENT_USER + ".json"
-
 __PROPERTIES_FILES = "properties.prop"
 __MAIN_MENU_TEXT = "\n\n\n\t\tOperation Chia \n\tMake your choice of what to do next."
 __CONTINUE_GAME_TEXT = "Choose 1 to continue your game"
@@ -33,8 +20,16 @@ __SAVE_DIRECTORY = os.getcwd + "/gameData/"
 __CURRENT_USER = __set_current_user("Chi4M4sT3R")
 __SAVE_FILE = __SAVE_DIRECTORY + __CURRENT_USER + ".json"
 
+def __set_first_time():
+    try:
+        os.rmdir(__SAVE_DIRECTORY)
+    except OSError:
+        __FIRST_TIME = true
+        #return os.listdir(__SAVE_DIRECTORY)
+    os.mkdir(__SAVE_DIRECTORY)
+    __FIRST_TIME = false
 
-
-
-
+def __set_current_user(name):
+    __CURRENT_USER = name
+    __SAVE_FILE = __SAVE_DIRECTORY + __CURRENT_USER + ".json"
 

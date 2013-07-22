@@ -3,14 +3,6 @@ import os
 import json
 from Constants import __SAVE_DIRECTORY, __CURRENT_USER, __SAVE_FILE, __set_current_user
 
-def check_save():
-    try:
-        os.rmdir(__SAVE_DIRECTORY)
-    except OSError:
-        return true
-        #return os.listdir(__SAVE_DIRECTORY)
-    os.mkdir(__SAVE_DIRECTORY)
-    return false
 
 def choose_save(lst):
     validID = false
