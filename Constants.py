@@ -1,5 +1,5 @@
 import os
-from SaveUtil import __check_save
+from SaveUtil import check_save
 
 __PROPERTIES_FILES = "properties.prop"
 __MAIN_MENU_TEXT = "\n\n\n\t\tOperation Chia \n\tMake your choice of what to do next."
