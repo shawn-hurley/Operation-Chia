@@ -27,8 +27,10 @@ def choose_save():
     print("Oh, of course I knew that.") 
 
 def open_prop_files():
-    file_json = open(__PROPERTIES_FILES).read()
+    with open(__PROPERTIES_FILES) as props:
+        file_json = props.read()
     return json.loads(file_json)
+
     
 
 def make_save(name):
@@ -38,3 +40,16 @@ def make_save(name):
     __set_current_user(name)
     __set_save_file(name)
 
+
+def save_item_to_file(file_dict, thing_to_save, spot_to_save):
+    """will return the file_dict, which should be saved later, on exit, except for the properties
+       Tha should saved immediatly after
+    """
+    file_dict[spot_to_save] = thing_to_save
+    return file_dict
+
+def write_dict_to_file(file_name, dict_to_save):
+    """takes the file name, and will overwrite the entire file with the correct dict."""
+    with open(file_name, "w") as outfile:
+        json.dump(dict_to_save, outfile)
+    

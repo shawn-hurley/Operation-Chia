@@ -9,3 +9,4 @@ def check_user_input_staic(answers, question):
         if user_input in answers:
             ui_not_in_answers = False
     return user_input
+

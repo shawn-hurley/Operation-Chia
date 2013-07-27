@@ -1,7 +1,7 @@
 import os
 from Utilities import check_user_input_staic
 from EasterEggs import surprise_1
-from SaveUtil import open_prop_files, choose_save, make_save
+from SaveUtil import open_prop_files, choose_save, make_save, save_item_to_file, write_dict_to_file
 from Constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __WHAT_CHANGE_OPTIONS, __CONTINUE_CONFIG_OPTIONS, __CHANGE_TO_TEXT,  __CONTINUE_GAME_TEXT, __NEW_GAME_TEXT, \
 __OPTIONS_TEXT, __CURRENT_USER, __FIRST_TIME, __SAVE_DIRECTORY, __SAVE_FILE
 
@@ -63,7 +63,10 @@ def configure_options():
     user_what_to_change = check_user_input_staic(list_of_choices, __WHAT_CHANGE_OPTIONS)
     #figure out what they want to change it to.
     user_what_change_to = check_user_input_staic(["true", "false"], __CHANGE_TO_TEXT)
-    #call to write changes
+    json_props_file = save_item_to_file(json_props_file, user_what_change_to, json_props_file.keys()[int(user_what_to_change)-1])
+    #Actually write to file.
+    write_dict_to_file(__PROPERTIES_FILES, json_props_file)
+    print json_props_file
     user_what_to_do = check_user_input_staic(["yes", "no"], __CONTINUE_CONFIG_OPTIONS)    
     if user_what_to_do == "yes":
         configure_options()
