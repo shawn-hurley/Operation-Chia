@@ -14,6 +14,7 @@ class GameControler(Object):
         self.__user_save_dict = user_save_dict
 
     def get_property(property):
+	"""This should return the property from the properties file"""
         return self.__properties_dict[property]
 
     def get_item(item):
