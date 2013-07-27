@@ -1,10 +1,6 @@
 # Compiled source #
 *.pyc
 
-#Properties Files#
-*.prop
-
-
 #OS generated Files#
 .DS_Store
 .DS_Store?
