@@ -1,10 +1,12 @@
 import os
 from Utilities import check_user_input_staic
 from EasterEggs import surprise_1
-from SaveUtil import open_prop_files, choose_save, make_save, save_item_to_file, write_dict_to_file
+from GameControler import GameControler
+from SaveUtil import open_prop_files, choose_save, make_save, save_item_to_file, write_dict_to_file, open_save_file
 from Constants import __PROPERTIES_FILES, __MAIN_MENU_TEXT, __WHAT_CHANGE_OPTIONS, __CONTINUE_CONFIG_OPTIONS, __CHANGE_TO_TEXT,  __CONTINUE_GAME_TEXT, __NEW_GAME_TEXT, \
-__OPTIONS_TEXT, __CURRENT_USER, __FIRST_TIME, __SAVE_DIRECTORY, __SAVE_FILE
+__OPTIONS_TEXT, __FIRST_TIME, __SAVE_DIRECTORY
 
+game_controller = GameControler()
 def main_menu():
     """This will be the main menu"""
     #ls_of_games = check_save()
@@ -27,13 +29,21 @@ def main_menu():
     if user_input == "1":
         newID = raw_input("Wake up, my boy! There's a world out there that needs saving. By what name will you make yourself known?")
         make_save(newID)
+        prop_dict = open_prop_files()
+        save_dict = open_save_file()
+        game_controller.set_game_controler(prop_dict, save_dict)
+        
 
     if user_input == "2":
         if __FIRST_TIME:
             newID = raw_input("Wake up, my boy! There's a world out there that needs saving. By what name will you make yourself known?")
             make_save(newID)
         else:
-            choose_save()      
+            choose_save() 
+        
+        prop_dict = open_prop_files()
+        save_dict = open_save_file()
+        game_controller.set_game_controler(prop_dict, save_dict)     
 
     if user_input == "3":
         configure_options()
@@ -48,7 +58,7 @@ def main_menu():
 	ready =  raw_input("Ready to save the world? (yes/no)")
 
     print("And so we go...")
-    
+    game_controller.get_next_level()
 
 
 def configure_options():
