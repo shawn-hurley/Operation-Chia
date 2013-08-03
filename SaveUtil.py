@@ -1,16 +1,17 @@
 import json
 import os
 import json
-from Constants import __PROPERTIES_FILES, __SAVE_DIRECTORY, __set_current_user, __set_save_file
+from Constants import __PROPERTIES_FILES, __SAVE_DIRECTORY
+from GameControler import GameControler
 
-
+game_controller = GameControler()
 def choose_save():
     validID = False
     inputID = ""
     print("Chosen one. You have returned! What was your name again...\nLet's consult my journal. I write everything down!")
     for file_name in os.listdir(__SAVE_DIRECTORY):
             if ".json" in file_name:
-                print(file_name[:5])
+                print(file_name[:-5])
 
     while not validID:
 
@@ -22,8 +23,10 @@ def choose_save():
             print "Don't lie to me, boy!"
             continue
         validID = True
-    __set_current_user(inputID)
-    __set_save_file(inputID)
+    game_controller.set_user_name(inputID)
+    game_controller.set_user_save(inputID)
+    #__set_current_user(inputID)
+    #__set_save_file(inputID)
     print("Oh, of course I knew that.") 
 
 def open_prop_files():
@@ -31,14 +34,18 @@ def open_prop_files():
         file_json = props.read()
     return json.loads(file_json)
 
+def open_save_file():
+    with open(game_controller.user_save) as outfile:
+        file_json = outfile.read()
+    return json.loads(file_json)
     
 
 def make_save(name):
-    data = [ { "name" : name, "items" : [], "progress" : [] } ]
+    data ={ "name" : name, "items" : [], "progress" : "chapter0" }
     with open(__SAVE_DIRECTORY + name + ".json", "wr") as outfile:
         json.dump(data, outfile)
-    __set_current_user(name)
-    __set_save_file(name)
+    game_controller.set_user_name(name)
+    game_controller.set_user_save(name)
 
 
 def save_item_to_file(file_dict, thing_to_save, spot_to_save):
